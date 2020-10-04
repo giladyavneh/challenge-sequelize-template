@@ -7,7 +7,8 @@ class MySequelize {
     }
 
     async create(obj) {
-
+        // this.connection.query(`${this}`)
+        // this.connection.query(sql)
         /*
            Model.create({
                name: 'test',
