@@ -1,3 +1,5 @@
+const mysql=require("mysql2")
+
 class MySequelize {
     constructor(connect, tableName) {
         this.connection = connect;

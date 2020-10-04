@@ -1,6 +1,7 @@
 const { MySequelize } = require("./mySequelize");
 const mysql = require("mysql2/promise");
 const { Op } = require('./Op/OpsSymbols')
+require("dotenv").config()
 
 
 let mysqlCon;
@@ -11,7 +12,7 @@ describe("MySequelize Challenge", () => {
     mysqlCon = await mysql.createConnection({
       host: 'localhost',
       user: 'root',
-      password: null,
+      password: process.env.PASSWORD,
       database: 'db_test',
       multipleStatements: true,
     });
