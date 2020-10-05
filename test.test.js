@@ -1,7 +1,7 @@
-const { MySequelize } = require("./mySequelize");
+const { MySequelize } = require("./index");
 //should require index
 const mysql = require("mysql2/promise");
-const { Op } = require('./Op/OpsSymbols')
+const { Op } = require('./Op/OpSymbols')
 //should be OpSymbols, not OpsSymbols
 require("dotenv").config()
 
@@ -14,7 +14,7 @@ describe("MySequelize Challenge", () => {
     mysqlCon = await mysql.createConnection({
       host: 'localhost',
       user: 'root',
-      password: process.env.PASSWORD,
+      password: process.env.PASSWORD||null,
       database: 'db_test',
       multipleStatements: true,
     });
@@ -508,4 +508,4 @@ describe("MySequelize Challenge", () => {
 
     })
   })
-});
+ });
