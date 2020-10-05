@@ -1,6 +1,8 @@
 const { MySequelize } = require("./mySequelize");
+//should require index
 const mysql = require("mysql2/promise");
 const { Op } = require('./Op/OpsSymbols')
+//should be OpSymbols, not OpsSymbols
 require("dotenv").config()
 
 
