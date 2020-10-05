@@ -203,7 +203,6 @@ describe("MySequelize Challenge", () => {
         ],
       });
 
-      console.log(myResults)
 
 
       expect(myResults[0].id).toBe(results[0][0].id);
