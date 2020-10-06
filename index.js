@@ -1,5 +1,12 @@
 const mysql = require("mysql2");
-require("dotenv").config();
+
+function flatten(arr) {
+  return arr.reduce(function (flat, toFlatten) {
+      return flat.concat(
+          Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten
+      );
+  }, []);
+}
 
 class MySequelize {
   constructor(connect, tableName) {
@@ -161,7 +168,7 @@ class MySequelize {
         let keyValuesOp = opUsed.map((op) =>
         
           typeof op === "symbol"
-            ? [Object.entries(options.where[op]), Symbol.keyFor(op)].flat(2)
+            ? flatten([Object.entries(options.where[op]), Symbol.keyFor(op)])
             : [op, options.where[op], "="]
         );
         console.log(keyValuesOp)
